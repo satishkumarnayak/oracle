@@ -12,36 +12,42 @@ public class CoffeeShop {
 
 		boolean result = false;
 		for (int i = 0; i < input.length; i++) {
-
-			if (input[0] > 5) {
-				result = false;
-				return result;
+			if (i == 0) {
+				if (input[0] > 5) {
+					return result;
+				}
 			}
-
 			if (input[i] == 5) {
-				total = total + input[i];
 				inputTracker.add(input[i]);
 				result = true;
 			} else if (input[i] > 5) {
-				int tempTotal = total - input[i];
-				if (tempTotal < 0) {
+				int returnChange = input[i] - 5;
+
+				if (inputTracker.contains(20) && returnChange > 10) {
+					int indexOfElementToBeRemoved = inputTracker.indexOf(20);
+					inputTracker.remove(indexOfElementToBeRemoved);
+					total = total - 20;
+					returnChange = returnChange - 20;
+				}
+				if (inputTracker.contains(10) && returnChange > 5) {
+					int indexOfElementToBeRemoved = inputTracker.indexOf(10);
+					inputTracker.remove(indexOfElementToBeRemoved);
+					total = total - 10;
+					returnChange = returnChange - 10;
+				}
+				if (inputTracker.contains(5)) {
+					int indexOfElementToBeRemoved = inputTracker.indexOf(5);
+					inputTracker.remove(indexOfElementToBeRemoved);
+					total = total - 5;
+					returnChange = returnChange - 5;
+				}
+				if (returnChange > 0 || returnChange < 0) {
 					result = false;
 					return result;
 				}
-				if (tempTotal > 0) {
-					if (inputTracker.contains(10)) {
-						int indexOfElementToBeRemoved = inputTracker.indexOf(10);
-						inputTracker.remove(indexOfElementToBeRemoved);
-						total = total - 10;
-					} else if (inputTracker.contains(5)) {
-						int indexOfElementToBeRemoved = inputTracker.indexOf(5);
-						inputTracker.remove(indexOfElementToBeRemoved);
-						total = total - 5;
-					}
-					total = total + input[i];
-					inputTracker.add(input[i]);
-					result = true;
-				}
+				total = total + input[i];
+				inputTracker.add(input[i]);
+				result = true;
 
 			}
 

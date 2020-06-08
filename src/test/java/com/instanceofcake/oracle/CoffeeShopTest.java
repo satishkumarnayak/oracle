@@ -62,4 +62,12 @@ public class CoffeeShopTest {
 		assertTrue(result);
 	}
 
+	@Test
+	public void testSolutionDemo() {
+		CoffeeShop coffeeShop = new CoffeeShop();
+		int[] input = { 5, 5, 5, 10, 5, 5, 10, 20, 20, 20 };
+		boolean result = coffeeShop.solution(input);
+		assertFalse(result);
+	}
+
 }
