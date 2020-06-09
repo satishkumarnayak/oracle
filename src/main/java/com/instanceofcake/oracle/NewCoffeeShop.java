@@ -43,14 +43,14 @@ public class NewCoffeeShop {
 				inputCount++;
 				billToCountMap.put(input[i], inputCount);
 			}
-			if (changeReturn == 15) {
+				if (changeReturn == 15) {
 				tenBillCount = billToCountMap.get(10);
 				fiveBillCount = billToCountMap.get(5);
 				if (fiveBillCount == 0 || (tenBillCount <= 0 && fiveBillCount < 3)) {
 					result = false;
 					return result;
 				}
-				if (tenBillCount > 0 && fiveBillCount >= 2) {
+				if (tenBillCount >= 1 && fiveBillCount >= 1) {
 					tenBillCount--;
 					billToCountMap.put(10, tenBillCount);
 					fiveBillCount--;
