@@ -50,7 +50,7 @@ public class NewCoffeeShop {
 					result = false;
 					return result;
 				}
-				if (tenBillCount >= 1 && fiveBillCount >= 1) {
+				else if (tenBillCount >= 1 && fiveBillCount >= 1) {
 					tenBillCount--;
 					billToCountMap.put(10, tenBillCount);
 					fiveBillCount--;
@@ -59,7 +59,7 @@ public class NewCoffeeShop {
 					inputCount++;
 					billToCountMap.put(input[i], inputCount);
 				}
-				if (fiveBillCount >= 3) {
+				else if (fiveBillCount >= 3) {
 					fiveBillCount = fiveBillCount - 3;
 					billToCountMap.put(5, fiveBillCount);
 					int inputCount = billToCountMap.get(input[i]);
